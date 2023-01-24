@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+{% extends 'home.html' %}
+{% block content %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
+
+
+</head>
+<body>
+<div class="hero-wrap hero-bread" style="background-image: url({% static 'images/bg3 chocolate.jpg' %});">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+<!--          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span class="mr-2"><a href="index.html">Product</a></span> <span>Product Single</span></p>-->
+            <h1 class="mb-0 bread">SINGLE PRODUCT</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-lg-6 mb-5 ftco-animate">
+    				<a href="{% static 'images/product-1.jpg' %}" class="image-popup"><img src="{{ dat.Product_Image.url }}" class="img-fluid" alt="Colorlib Template"></a>
+    			</div>
+    			<div class="col-lg-6 product-details pl-md-5 ftco-animate" >
+    				<h3><a href="#" class="title" style="color:brown;font-weight:bold;">{{ dat.Product_Name }}</a></h3>
+							<a href="#" class="category" style="color:black;">{{ dat.Product_Description }}</a><br/>
+                    <form action="{% url 'customerdetailspage' %}">
+                            <a href="#" class="title" style="color:brown;">Price per KG: {{ dat.Price }}</a><br/>
+                            <input type="hidden"  id="Price" name="Price" value="{{ dat.Price }}">
+
+							<a href="#" class="title" style="color:black;">Select your required Quantity:</a><br/>
+							<input type="number" min="1" max="10" name="qty" id="qty" value="1" required="" ><br/>
+
+							<a href="#" class="title"  style="color:brown;" >Total Price:</a><br/>
+                            <input type="text" name="totalprice" id="totalprice" value="{{ dat.Price }}"><br/><br/>
+                    </form>
+<!--                    <div>-->
+<!--                        <form method="post" action="{% url 'customerdetailspage' %}" enctype="multipart/form-data">-->
+<!--                            {% csrf_token %}-->
+<!--                            <button type="submit">Add to Cart</button>-->
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+
+
+<!--    				<div class="rating d-flex">-->
+<!--							<p class="text-left mr-4">-->
+<!--								<a href="#" class="mr-2">5.0</a>-->
+<!--								<a href="#"><span class="ion-ios-star-outline"></span></a>-->
+<!--								<a href="#"><span class="ion-ios-star-outline"></span></a>-->
+<!--								<a href="#"><span class="ion-ios-star-outline"></span></a>-->
+<!--								<a href="#"><span class="ion-ios-star-outline"></span></a>-->
+<!--								<a href="#"><span class="ion-ios-star-outline"></span></a>-->
+<!--							</p>-->
+<!--							<p class="text-left mr-4">-->
+<!--								<a href="#" class="mr-2" style="color: #000;">100 <span style="color: #bbb;">Rating</span></a>-->
+<!--							</p>-->
+<!--							<p class="text-left">-->
+<!--								<a href="#" class="mr-2" style="color: #000;">500 <span style="color: #bbb;">Sold</span></a>-->
+<!--							</p>-->
+<!--						</div>-->
+<!--    				<p class="price"><span>$120.00</span></p>-->
+<!--    				<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didnâ€™t take long until.-->
+<!--						</p>-->
+<!--						<div class="row mt-4">-->
+<!--							<div class="col-md-6">-->
+<!--								<div class="form-group d-flex">-->
+<!--		              <div class="select-wrap">-->
+<!--	                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>-->
+<!--	                  <select name="" id="" class="form-control">-->
+<!--	                  	<option value="">Small</option>-->
+<!--	                    <option value="">Medium</option>-->
+<!--	                    <option value="">Large</option>-->
+<!--	                    <option value="">Extra Large</option>-->
+<!--	                  </select>-->
+<!--	                </div>-->
+<!--		            </div>-->
+<!--							</div>-->
+<!--							<div class="w-100"></div>-->
+<!--							<div class="input-group col-md-6 d-flex mb-3">-->
+<!--	             	<span class="input-group-btn mr-2">-->
+<!--	                	<button type="button" class="quantity-left-minus btn"  data-type="minus" data-field="">-->
+<!--	                   <i class="ion-ios-remove"></i>-->
+<!--	                	</button>-->
+<!--	            		</span>-->
+<!--	             	<input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">-->
+<!--	             	<span class="input-group-btn ml-2">-->
+<!--	                	<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">-->
+<!--	                     <i class="ion-ios-add"></i>-->
+<!--	                 </button>-->
+<!--	             	</span>-->
+<!--	          	</div>-->
+<!--	          	<div class="w-100"></div>-->
+<!--	          	<div class="col-md-12">-->
+<!--	          		<p style="color: #000;">600 kg available</p>-->
+<!--	          	</div>-->
+
+                    <form method="post" action="{% url 'customerdetailspage' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="submit" value="Add to Cart" class="submit px-3" style="color:white;background:black;">
+<!--                        <button class="btn btn-dark">Add to Cart</button>-->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!--                <div>-->
+<!--          	<p><a href="CustomerDetails.html" class="btn btn-black py-3 px-5">Add to Cart</a></p>-->
+<!--    			</div>-->
+
+<script type="text/javascript">
+              $(document).ready(function(){
+              $("#qty").change(function(){
+
+              quantity=document.getElementById("qty").value;
+
+              Price=document.getElementById("Price").value;
+
+              total=quantity * Price;
+
+              document.getElementById("totalprice").value = total;
+              });
+              });
+
+</script>
+
+
+</body>
+</html>
+{% endblock %}
+
+
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% extends 'home.html' %}
+{% block content %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <section class="about_section layout_padding ">
+      <div class="container  ">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="detail-box">
+              <div class="heading_container">
+                <h2>
+                  OUR PRODUCTS
+                </h2>
+              </div>
+              <p>
+                Our purpose as a brand is to be able to bring back to life the culture of celebrating healthy and nutritious food seamlessly,bringing variety and quality with ease and conviction enough to be a part of people's life. </p>
+              <a href="#">
+                <h5>100% Committed to our customers</h5>
+<!--                <img src="{% static 'images/color-arrow.png' %}" alt="">-->
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="img-box">
+              <img src="{% static 'images/about-img.png' %}" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!--            <h2 class="mb-4">Our Products</h2>-->
+<!--            <p>Never miss out on new products,exclusive offers,and more</p>-->
+          </div>
+        </div>
+    	</div>
+    	<div class="container">
+    		<div class="row">
+				{% for d in dat %}
+    			<div class="col-md-6 col-lg-3 ftco-animate">
+    				<div class="product">
+    					<a href="{% url 'singleproductpage' dataid=d.id %}" class="img-prod"><img style="height:300px;" src="{{ d.Product_Image.url }}" alt="Colorlib Template">
+<!--    						<span class="status">30%</span>-->
+<!--    						<div class="overlay"></div>-->
+    					</a>
+    					<div class="text py-3 pb-4 px-3 text-center">
+    						<h3><a href="#">{{ d.Product_Name }}</a></h3>
+    						<div class="d-flex">
+<!--    							<div class="pricing">-->
+<!--		    						<p class="price"><span class="mr-2 price-dc">$120.00</span><span class="price-sale">$80.00</span></p>-->
+<!--		    					</div>-->
+	    					</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+  </body>
+</html>
+
+</body>
+</html>
+{% endblock %}
+

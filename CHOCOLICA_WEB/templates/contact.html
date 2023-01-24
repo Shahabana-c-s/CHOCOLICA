@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% extends 'home.html' %}
+{% block content %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="hero-wrap hero-bread" style="background-image: url({% static 'images/bg3 chocolate.jpg' %});">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+<!--          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Contact us</span></p>-->
+            <h1 class="mb-0 bread">Contact us</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section contact-section bg-light">
+      <div class="container">
+      	<div class="row d-flex mb-5 contact-info">
+          <div class="w-100"></div>
+          <div class="col-md-3 d-flex">
+          	<div class="info bg-white p-4">
+	            <p><span>Address:</span> <a href=""> CHOCOLICA,Argula & Sons Pvt. Ltd 5-5/A1, Tellapur Industrial Area,Hyderabad - 502032 </a></p>
+	          </div>
+          </div>
+          <div class="col-md-3 d-flex">
+          	<div class="info bg-white p-4">
+	            <p><span>Phone:</span> <br><a href="tel://1234567920">+91 8247481625</a></p>
+	          </div>
+          </div>
+          <div class="col-md-3 d-flex">
+          	<div class="info bg-white p-4">
+	            <p><span>Email:</span> <a href="mailto:info@yoursite.com">CHOCOLICA@gmail.com</a></p>
+	          </div>
+          </div>
+          <div class="col-md-3 d-flex">
+          	<div class="info bg-white p-4">
+	            <p><span>Website:</span> <br><a href="#">CHOCOLICA.com</a></p>
+	          </div>
+          </div>
+        </div>
+        <div class="row block-9">
+          <div class="col-md-6 order-md-last d-flex">
+<!--            <form action="#" class="bg-white p-5 contact-form">-->
+              <form class="bg-white p-5 contact-form" method="post" action="{% url 'savecontact' %}" enctype="multipart/form-data">
+                  {% csrf_token %}
+              <div class="form-group">
+                <input type="text" class="form-control" name="contactname" placeholder="Your Name">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="contactemail" placeholder="Your Email">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" placeholder="Subject">
+              </div>
+              <div class="form-group">
+                <input type="text" name="message" id="" cols="30" rows="7" class="form-control" placeholder="Message"></input>
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+              </div>
+            </form>
+
+          </div>
+
+          <div class="col-md-6 d-flex">
+          	<div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url({% static 'images/bg5.jpg' %});"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Display Category Page</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <div id="table-1_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                        <div class="row">
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="table table-striped v_center dataTable no-footer" id="table-1" role="grid" aria-describedby="table-1_info">
+
+                        <thead>
+                        <tr>
+                            <th> Category Name </th>
+                            <th> Description </th>
+                            <th> Category Image </th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for d in data %}
+                        <tr>
+                             <td>{{ d.Category_Name }}</td>
+                             <td>{{ d.Description }}</td>
+                             <td>
+                                 <img width="50px" src="{{ d.Category_Image.url }}">
+                             </td>
+                            <td>
+                                <form action="{% url 'editcategorydata' dataid=d.id %}">
+                                <button type="submit" class="btn btn-primary">EDIT</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{% url 'deletecategorydata' dataid=d.id %}">
+                                <button type="submit" class="btn btn-primary">DELETE</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+
+                       </tbody>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+{% endblock %}
